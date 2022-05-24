@@ -4,7 +4,7 @@ USER root
 WORKDIR /
 RUN DEBIAN_FRONTEND=noninteractive apt-get update  && \
     DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends --no-install-suggests winbind -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get clean autoclean -y
+    DEBIAN_FRONTEND=noninteractive apt-get clean autoclean -y && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
