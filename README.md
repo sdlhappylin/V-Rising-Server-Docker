@@ -10,8 +10,8 @@ This is a private docker image
 3. Build the image `docker build . -t V-Rising-Server-Docker:latest` 
 4. make dir for your serverdata `mkdir /path/for/server-data` 
 5. Use docker-compose or run docker container 
-   1. Use docker-compose
-      1. create file docker-compose.yml `nano docker-compose.yml`
+#### Use docker-compose：
+create file docker-compose.yml `nano docker-compose.yml`
 ```
  version: "2.1"
  services: 
@@ -25,8 +25,9 @@ This is a private docker image
        - "9877:9877/udp"
      restart: unless-stopped    
 ```
-      2. run `docker-compose up -d`
-   2. Run docker container `sudo docker run --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data V-Rising-Server-Docker:latest`
+
+run `docker-compose up -d`
+#### Run docker container `sudo docker run --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data V-Rising-Server-Docker:latest`
 6. Copy `ServerHostSettings.json` and `ServerGameSettings.json` to /path/for/server-data 
 7. Refer to the [V Rising Dedicated Server Instructions](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json 
 ### Fork the respository and use GitHubActions
