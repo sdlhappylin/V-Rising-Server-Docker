@@ -57,6 +57,6 @@ docker-compose up -d
 ## Others
 ### volume permission error
 set  
-`chmod -R 777  /path/for/server-data`  
+    chmod -R 777  /path/for/server-data  
 or  
-`sudo docker run  –privileged=true --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data v-rising-server-docker`  
+    sudo docker run  –privileged=true --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data v-rising-server-docker  
