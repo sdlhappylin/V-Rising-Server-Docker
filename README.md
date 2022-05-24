@@ -38,16 +38,16 @@ docker-compose up -d
 ##### run docker containder  
     sudo docker run --name V-Rising-Server-Docker -p 9876:9876/udp -p 9877:9877/udp -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data v-rising-server-docker
 #### 6. Copy Settings to /path/for/server-data  
-#### 7. Refer to the ["V Rising Dedicated Server Instructions"](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json in Settings directory  
+#### 7. Refer to the ["V Rising Dedicated Server Instructions"](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json in Settings directory.  
 ### Fork the repository and use GitHubActions  
 #### 1. Fork the repository  
 #### 2. New repository secrete  
-Click "New repository secrete" in "YourReposeitoryPage->Settings->Security->Secrets->Actions" to create an "Actions secrets" and name CR_PAT, then set the value to your "access tokens" which you get in [Personal access tokens](https://github.com/settings/tokens)  
+Click "New repository secrete" in "YourReposeitoryPage->Settings->Security->Secrets->Actions" to create an "Actions secrets" and name CR_PAT, then set the value to your "access tokens" which you get in [Personal access tokens](https://github.com/settings/tokens).  
 #### 3. Run docker login and then input your password  
     docker login ghcr.io
 #### 4. Run docker pull  
     docker pull ghcr.io/yourname/v-rising-server-docker
-#### 5. Other steps reference to ["Build docker image on local"](#build-docker-image-on-local)  
+#### 5. Other steps reference to ["Build docker image on local"](#build-docker-image-on-local).  
 ## Can not create server-data  
 Perhaps volume permission denied.  
 You can do somethings like this:  
