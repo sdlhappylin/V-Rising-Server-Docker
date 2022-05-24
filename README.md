@@ -1,5 +1,5 @@
 # Docker container for V-Rising Server
-use fragsoc/steamcmd-wine-xvfb to setup VRising Server.
+From fragsoc/steamcmd-wine-xvfb to building VRising Server docker image.
 
 This is a private docker image.
 ## Useage 
