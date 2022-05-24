@@ -16,7 +16,8 @@ This is a private docker image.
     mkdir /path/for/server-data
 #### 5. Use docker-compose or run docker container 
 ##### Use docker-compose：
-* create file docker-compose.yml 
+* create file docker-compose.yml
+* 
     nano docker-compose.yml
 
 docker-compose.yml
@@ -31,10 +32,11 @@ docker-compose.yml
      ports: 
        - "9876:9876/udp"
        - "9877:9877/udp"
-     restart: unless-stopped    
+     restart: unless-stopped
 ```
 
 * run docker-compose up -d
+
     docker-compose up -d
 
 ##### Use docker containder
