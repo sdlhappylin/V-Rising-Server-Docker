@@ -17,7 +17,7 @@ This is a private docker image.
 #### 5. Use docker-compose or run docker container 
 ##### Use docker-compose：
 create file docker-compose.yml 
-`nano docker-compose.yml`
+    nano docker-compose.yml
 
 docker-compose.yml
 ```
@@ -34,7 +34,8 @@ docker-compose.yml
      restart: unless-stopped    
 ```
 
-run `docker-compose up -d`
+run docker-compose up -d
+    docker-compose up -d
 
 ##### Use docker containder
     sudo docker run --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data v-rising-server-docker
@@ -46,6 +47,8 @@ run `docker-compose up -d`
 #### 2. New respositry screte named CR_PAT and value is your github token     
 [set from here](https://github.com/settings/tokens)    
 * position: Settings->Security->Secret->Actions *
-#### 3.run  `docker login ghcr.io` and input your password to login 
-#### 4. run `docker pull ghcr.io/yourname/v-rising-server-docker`
+#### 3.run  docker login ghcr.io and input your password to login
+    docker login ghcr.io
+#### 4. run docker pull ghcr.io/yourname/v-rising-server-docker
+    docker pull ghcr.io/yourname/v-rising-server-docker
 #### 5. Others reference abrove useage
