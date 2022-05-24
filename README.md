@@ -28,7 +28,7 @@ services:
     ```
 >> run docker container
 ```
+
 docker run --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data V-Rising-Server-Docker:latest
 ```
-
 >6.copy ServerHostSettings.json ServerGameSettings.json to /path/for/server-data andRefer to the [V Rising Dedicated Server Instructions](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json 
