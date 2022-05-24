@@ -8,7 +8,8 @@ This is a private docker image.
 *Suppose you use Ubuntu20.04 and setup git, docker and docker-compose* 
 #### 1. Clone the repo git clone https://github.com/sdlhappylin/V-Rising-Server-Docker.git 
 #### 2. CD to the directory V-Rising-Server-Docker `cd V-Rising-Server-Docker` 
-#### 3. Build the image `docker build . -t V-Rising-Server-Docker:latest` 
+#### 3. Build the image
+    docker build . -t V-Rising-Server-Docker
 #### 4. make dir for your serverdata `mkdir /path/for/server-data` 
 #### 5. Use docker-compose or run docker container 
 ##### Use docker-compose：
