@@ -43,7 +43,7 @@ docker-compose up -d
 ### Fork the repository and use GitHubActions  
 #### 1. fork the repository  
 #### 2. New repositry secrete  
-Set "repositry secrete" in "YourReposeitoryPage->Settings->Security->Secret->Actions" and name CR_PAT, then set the value to your "access tokens" which you get in [Personal access tokens](https://github.com/settings/tokens)  
+Click "New repositry secrete" in "YourReposeitoryPage->Settings->Security->Secrets->Actions" to create an "Actions secrets" and name CR_PAT, then set the value to your "access tokens" which you get in [Personal access tokens](https://github.com/settings/tokens)  
 #### 3.run  docker login ghcr.io and input your password  
     docker login ghcr.io  
 #### 4. run docker pull ghcr.io/yourname/v-rising-server-docker  
