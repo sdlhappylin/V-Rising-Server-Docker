@@ -20,17 +20,17 @@ This is a private docker image.
 ##### Use docker-compose:  
 * create file docker-compose.yml  
 ```
- version: "2.1"
- services: 
-   vrising: 
-     container_name: v-rising-server-docker
-     image: v-rising-server-docker
-     volumes: 
-       - /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data
-     ports: 
-       - "9876:9876/udp"
-       - "9877:9877/udp"
-     restart: unless-stopped
+version: "2.1"
+services: 
+  vrising: 
+    container_name: v-rising-server-docker
+    image: v-rising-server-docker
+    volumes: 
+      - /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data
+    ports: 
+      - "9876:9876/udp"
+      - "9877:9877/udp"
+    restart: unless-stopped
 ```  
 * run docker-compose up -d  
 ```
