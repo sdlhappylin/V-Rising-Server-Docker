@@ -52,7 +52,6 @@ Click "New repositry secrete" in "YourReposeitoryPage->Settings->Security->Secre
 ## Can not create server-data  
 perhaps volume permission denied  
 you can do somethings like this:  
-set  
 ```
 chmod -R 777 /path/for/server-data
 ```  
