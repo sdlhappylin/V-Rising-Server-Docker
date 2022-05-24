@@ -51,7 +51,7 @@ Click "New repositry secrete" in "YourReposeitoryPage->Settings->Security->Secre
 #### 5. Others reference abrove useage of "Build docker image on local"  
 ## Can not create server-data  
 perhaps volume permission denied  
-you can do like this  
+you can do like this:  
 set  
 ```
 chmod -R 777 /path/for/server-data
