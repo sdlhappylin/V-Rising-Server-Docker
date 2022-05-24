@@ -11,8 +11,11 @@ This is a private docker image.
     cd V-Rising-Server-Docker
 #### 3. Build the image  
     docker build . -t v-rising-server-docker
-#### 4. make dir for your serverdata  
+#### 4. make directory and set permissions for your server-data  
+```
     mkdir /path/for/server-data
+    chmod -R 777 /path/for/server-data
+```  
 #### 5. Use docker-compose or run docker container  
 ##### Use docker-compose:  
 * create file docker-compose.yml  
@@ -37,11 +40,11 @@ docker-compose up -d
     sudo docker run --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data v-rising-server-docker
 #### 6. Copy Settings to /path/for/server-data  
 #### 7. Refer to the ["V Rising Dedicated Server Instructions"](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json in Settings directory  
-### Fork the respository and use GitHubActions  
-#### 1. fork the respository  
-#### 2. New respositry screte named CR_PAT and value is your github token  
-**[Personal access tokens](https://github.com/settings/tokens)**  
-*position: Settings->Security->Secret->Actions*  
+### Fork the repository and use GitHubActions  
+#### 1. fork the repository  
+#### 2. New repositry screte named CR_PAT and value is your github token  
+How to set  access tokens. *[Personal access tokens](https://github.com/settings/tokens)*  
+*Repositry screte position:YourReposeitoryPage->Settings->Security->Secret->Actions*  
 #### 3.run  docker login ghcr.io and input your password  
     docker login ghcr.io  
 #### 4. run docker pull ghcr.io/yourname/v-rising-server-docker  
