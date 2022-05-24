@@ -19,6 +19,7 @@ This is a private docker image.
 create file docker-compose.yml 
     nano docker-compose.yml
     
+
 ```
  version: "2.1"
  services: 
