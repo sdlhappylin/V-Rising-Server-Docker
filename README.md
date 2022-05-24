@@ -45,7 +45,7 @@ run docker-compose up -d
 ### Fork the respository and use GitHubActions
 #### 1. fork the respository
 #### 2. New respositry screte named CR_PAT and value is your github token     
-[set from here](https://github.com/settings/tokens)    
+[Personal access tokens](https://github.com/settings/tokens)    
 position: Settings->Security->Secret->Actions
 #### 3.run  docker login ghcr.io and input your password to login
     docker login ghcr.io
