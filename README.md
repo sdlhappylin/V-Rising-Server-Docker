@@ -4,7 +4,7 @@ From fragsoc/steamcmd-wine-xvfb to building VRising Server docker image.
 This is a private docker image.
 ## Useage 
 ### Build docker image on local 
-*Tips：please query the usage for ubuntu, docker and docker-compose by yourself* 
+*Tips：please query the usage for ubuntu, docker and docker-compose by yourself*  
 *Suppose you use Ubuntu20.04 and setup git, docker and docker-compose* 
 #### 1. Clone the repo 
     git clone https://github.com/sdlhappylin/V-Rising-Server-Docker.git 
