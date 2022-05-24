@@ -32,14 +32,12 @@ services:
     ports: 
       - "9876:9876/udp"
       - "9877:9877/udp"
-    restart: unless-stopped
-```
+    restart: unless-stopped```
+
 >> run `docker-compose up -d`
 
->Use run docker container
->> ```
-sudo docker run --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data V-Rising-Server-Docker:latest
-```
+>Use run docker container `sudo docker run --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data V-Rising-Server-Docker:latest`
+
 
 6. copy ServerHostSettings.json ServerGameSettings.json to /path/for/server-data and refer to the [V Rising Dedicated Server Instructions](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json 
 
