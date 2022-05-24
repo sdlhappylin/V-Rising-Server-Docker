@@ -51,7 +51,7 @@ docker-compose up -d
 ### volume permission error  
 set  
 ```
-chmod -R 777  /path/for/server-data
+chmod -R 777 /path/for/server-data
 ```  
 or  
 ```
