@@ -18,6 +18,7 @@ This is a private docker image.
 ##### Use docker-compose：
 create file docker-compose.yml 
 `nano docker-compose.yml`
+docker-compose.yml
 ```
  version: "2.1"
  services: 
