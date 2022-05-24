@@ -17,7 +17,7 @@ RUN mkdir -p vrising/server-data && \
     groupadd -g $GID vrising && \
     useradd -m -s /bin/false -u $UID -g $GID vrising && \
     mkdir -p /vrising/.wine/drive_c/VRisingServer/server-data && \
-    chmod -R 777 /vrising/.wine/drive_c/VRisingServer
+    chmod -R 777 /vrising/.wine/drive_c/VRisingServer && \
     chown -R vrising:vrising /vrising
 
 USER vrising
