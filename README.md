@@ -49,8 +49,9 @@ Click "New repositry secrete" in "YourReposeitoryPage->Settings->Security->Secre
 #### 4. run docker pull ghcr.io/yourname/v-rising-server-docker  
     docker pull ghcr.io/yourname/v-rising-server-docker  
 #### 5. Others reference abrove useage of "Build docker image on local"  
-## Others  
-### volume permission error  
+## Can not create server-data  
+perhaps volume permission denied  
+you can do like this  
 set  
 ```
 chmod -R 777 /path/for/server-data
