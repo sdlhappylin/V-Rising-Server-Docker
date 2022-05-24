@@ -42,9 +42,8 @@ docker-compose up -d
 #### 7. Refer to the ["V Rising Dedicated Server Instructions"](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json in Settings directory  
 ### Fork the repository and use GitHubActions  
 #### 1. fork the repository  
-#### 2. New repositry screte named CR_PAT and value is your github token  
-How to set  access tokens. *[Personal access tokens](https://github.com/settings/tokens)*  
-*Repositry screte position:YourReposeitoryPage->Settings->Security->Secret->Actions*  
+#### 2. New repositry secrete  
+Set "repositry secrete" in "YourReposeitoryPage->Settings->Security->Secret->Actions" and name CR_PAT, then set the value to your "access tokens" which you get in [Personal access tokens](https://github.com/settings/tokens)  
 #### 3.run  docker login ghcr.io and input your password  
     docker login ghcr.io  
 #### 4. run docker pull ghcr.io/yourname/v-rising-server-docker  
