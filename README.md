@@ -26,7 +26,6 @@ This is a private docker image
      restart: unless-stopped    
 ```
       2. run `docker-compose up -d`
-
    2. Run docker container `sudo docker run --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data V-Rising-Server-Docker:latest`
 6. Copy `ServerHostSettings.json` and `ServerGameSettings.json` to /path/for/server-data 
 7. Refer to the [V Rising Dedicated Server Instructions](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json 
