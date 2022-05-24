@@ -13,8 +13,8 @@ This is a private docker image.
     docker build . -t v-rising-server-docker
 #### 4. make directory and set permissions for your server-data  
 ```
-    mkdir /path/for/server-data
-    chmod -R 777 /path/for/server-data
+mkdir /path/for/server-data
+chmod -R 777 /path/for/server-data
 ```  
 #### 5. Use docker-compose or run docker container  
 #####  docker-compose:  
