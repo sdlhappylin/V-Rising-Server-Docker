@@ -53,4 +53,4 @@ docker-compose.yml
     docker login ghcr.io
 #### 4. run docker pull ghcr.io/yourname/v-rising-server-docker
     docker pull ghcr.io/yourname/v-rising-server-docker
-#### 5. Others reference abrove useage
+#### 5. Others reference abrove useage of "Build docker image on local"
