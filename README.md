@@ -16,7 +16,7 @@ This is a private docker image.
     mkdir /path/for/server-data
 #### 5. Use docker-compose or run docker container 
 ##### Use docker-compose：
-* create file docker-compose.yml
+* create file docker-compose.yml  
 ```
 nano docker-compose.yml
 ```
@@ -35,7 +35,7 @@ docker-compose.yml
      restart: unless-stopped
 ```
 
-* run docker-compose up -d
+* run docker-compose up -d  
 ```
 docker-compose up -d
 ```
@@ -48,7 +48,7 @@ docker-compose up -d
 #### 1. fork the respository
 #### 2. New respositry screte named CR_PAT and value is your github token     
 [Personal access tokens](https://github.com/settings/tokens)    
-*position: Settings->Security->Secret->Actions*
+*position: Settings->Security->Secret->Actions*  
 #### 3.run  docker login ghcr.io and input your password to login
     docker login ghcr.io
 #### 4. run docker pull ghcr.io/yourname/v-rising-server-docker
@@ -57,6 +57,10 @@ docker-compose up -d
 ## Others
 ### volume permission error
 set  
-    chmod -R 777  /path/for/server-data  
+```
+chmod -R 777  /path/for/server-data
+```  
 or  
-    sudo docker run  –privileged=true --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data v-rising-server-docker  
+```
+sudo docker run  –privileged=true --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data v-rising-server-docker
+```  
