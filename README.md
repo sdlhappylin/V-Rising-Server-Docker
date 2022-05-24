@@ -33,7 +33,7 @@ This is a private docker image
 7. Refer to the [V Rising Dedicated Server Instructions](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json 
 ### Fork the respository and use GitHubActions
 1. fork the respository
-2. New respositry screte named CR_PAT and value is your github token [set from here](https://github.com/settings/tokens) *position: Settings->Security->Secret->Actions*
+2. New respositry screte named CR_PAT and value is your github token [set from here](https://github.com/settings/tokens) #### *position: Settings->Security->Secret->Actions*
 3.run  `docker login ghcr.io` and input your password to login 
 4. run `docker pull ghcr.io/yourname/v-rising-server-docker`
 5. Others reference abrove useage
