@@ -18,7 +18,7 @@ This is a private docker image.
 ```  
 #### 5. Use docker-compose or run docker container  
 ##### Use docker-compose:  
-* create file docker-compose.yml  
+* new docker-compose.yml  
 ```
 version: "2.1"
 services: 
@@ -32,7 +32,7 @@ services:
       - "9877:9877/udp"
     restart: unless-stopped
 ```  
-* run docker-compose up -d  
+* run docker-compose  
 ```
 docker-compose up -d
 ```  
