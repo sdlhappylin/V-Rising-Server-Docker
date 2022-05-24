@@ -54,3 +54,8 @@ docker-compose up -d
 #### 4. run docker pull ghcr.io/yourname/v-rising-server-docker
     docker pull ghcr.io/yourname/v-rising-server-docker
 #### 5. Others reference abrove useage of "Build docker image on local"
+## Others
+### volume permission error
+    chmod -R 777  /path/for/server-data
+or
+    sudo docker run  –privileged=true --name V-Rising-Server-Docker -p 9876:9876 -v /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data v-rising-server-docker
