@@ -17,7 +17,7 @@ This is a private docker image.
 #### 5. Use docker-compose or run docker container 
 ##### Use docker-compose：
 * create file docker-compose.yml
-* 
+
     nano docker-compose.yml
 
 docker-compose.yml
