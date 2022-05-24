@@ -8,9 +8,13 @@ This is a private docker image
 ### Build on local
 
 > 1.Clone the repo git clone https://github.com/sdlhappylin/V-Rising-Server-Docker.git
+> 
 > 2.CD to the directory V-Rising-Server-Docker `cd V-Rising-Server-Docker`
+> 
 > 3.Build the image `docker build . -t V-Rising-Server-Docker:latest`
+> 
 > 4.make dir for your serverdata `mkdir /path/for/server-data`
+> 
 > 5.Use docker compose or run docker container 
 >> docker compose file docker-compose.yml
 ```
