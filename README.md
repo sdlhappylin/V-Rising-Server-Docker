@@ -45,7 +45,7 @@ docker-compose up -d
 #### 2. New repository secrete  
 Click "New repository secrete" in "YourReposeitoryPage->Settings->Security->Secrets->Actions" to create an "Actions secrets" and name CR_PAT, then set the value to your "access tokens" which you get in [Personal access tokens](https://github.com/settings/tokens)  
 #### 3.run  docker login ghcr.io and input your password  
-    docker login ghcr.io  
+    docker login ghcr.io
 #### 4. run docker pull ghcr.io/yourname/v-rising-server-docker  
     docker pull ghcr.io/yourname/v-rising-server-docker
 #### 5. Other steps reference to ["Build docker image on local"](#build-docker-image-on-local)  
