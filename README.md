@@ -6,7 +6,7 @@ This is a private docker image.
 *Tips：Please query the instructions of ubuntu, docker and docker-compose by yourself.*  
 *Suppose you use Ubuntu20.04 and setup git, docker and docker-compose.*  
 #### 1. Clone the repo  
-    git clone https://github.com/sdlhappylin/V-Rising-Server-Docker.git  
+    git clone https://github.com/sdlhappylin/V-Rising-Server-Docker.git
 #### 2. CD to the directory V-Rising-Server-Docker  
     cd V-Rising-Server-Docker
 #### 3. Build the image  
