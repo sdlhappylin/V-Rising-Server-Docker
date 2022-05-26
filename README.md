@@ -12,7 +12,7 @@ This is a private docker image.
 #### 3. Build image  
     docker build . -t v-rising-server-docker
 #### 4. Make directory and set permissions for your server-data  
-**Very Important ！！ If you do not set it ,the container will not setup save in volume!!**  
+*Very Important ！！ If you do not set it ,the container will not setup save in volume!!*  
 ```
 mkdir /path/for/server-data && chmod -R 777 /path/for/server-data
 ```  
@@ -24,7 +24,7 @@ version: "2.1"
 services: 
   vrising: 
     container_name: v-rising-server-docker
-    image: v-rising-server-docker
+    image: v-rising-server-docker #need need to be changed to your own image name
     volumes: 
       - /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data
     ports: 
@@ -32,6 +32,7 @@ services:
       - "9877:9877/udp"
     restart: unless-stopped
 ```  
+*The image name should change to you own repository name and image name if you are using GitHub Action or other dockeregistry like DockerHub.(format: repository/imagename:latest or ghcr.io/repository/imagename:latest)*  
 * run docker-compose  
 ```
 docker-compose up -d
