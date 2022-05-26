@@ -12,6 +12,7 @@ This is a private docker image.
 #### 3. Build image  
     docker build . -t v-rising-server-docker
 #### 4. Make directory and set permissions for your server-data  
+*Very Important ！！ If you do not set it ,the container will not setup save in volume!!*  
 ```
 mkdir /path/for/server-data && chmod -R 777 /path/for/server-data
 ```  
@@ -19,11 +20,11 @@ mkdir /path/for/server-data && chmod -R 777 /path/for/server-data
 #####  use docker-compose:  
 * new docker-compose.yml  
 ```
-version: "2.1"
+version: "3.1"
 services: 
   vrising: 
     container_name: v-rising-server-docker
-    image: v-rising-server-docker
+    image: v-rising-server-docker #need to be changed to your own image name
     volumes: 
       - /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data
     ports: 
@@ -31,6 +32,7 @@ services:
       - "9877:9877/udp"
     restart: unless-stopped
 ```  
+*The image name should change to you own repository name and image name if you are using GitHub Action or other dockeregistry like DockerHub.(format: repository/imagename:latest or ghcr.io/repository/imagename:latest)*  
 * run docker-compose  
 ```
 docker-compose up -d
@@ -41,9 +43,9 @@ docker-compose up -d
 #### 7. Refer to the ["V Rising Dedicated Server Instructions"](https://github.com/StunlockStudios/vrising-dedicated-server-instructions)  to modify the ServerHostSettings.json ServerGameSettings.json in Settings directory.  
 ### Fork the repository and use GitHubActions  
 #### 1. Fork the repository  
-#### 2. New repository secrete  
-Click "New repository secrete" in "YourReposeitoryPage->Settings->Security->Secrets->Actions" to create an "Actions secrets" and name CR_PAT, then set the value to your "access tokens" which you get in [Personal access tokens](https://github.com/settings/tokens).  
-#### 3. Run docker login and then input your password  
+#### 2. New repository secret  
+Click "New repository secret" in "YourReposeitoryPage->Settings->Security->Secrets->Actions" to create an "Actions secrets" and name CR_PAT, then set the value to your "access tokens" which you get in [Personal access tokens](https://github.com/settings/tokens).  
+#### 3. Run docker login and then input your password  (on your own server)
     docker login ghcr.io
 #### 4. Run docker pull  
     docker pull ghcr.io/yourname/v-rising-server-docker
