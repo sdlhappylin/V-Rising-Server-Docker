@@ -20,11 +20,11 @@ mkdir /path/for/server-data && chmod -R 777 /path/for/server-data
 #####  use docker-compose:  
 * new docker-compose.yml  
 ```
-version: "2.1"
+version: "3.1"
 services: 
   vrising: 
     container_name: v-rising-server-docker
-    image: v-rising-server-docker #need need to be changed to your own image name
+    image: v-rising-server-docker #need to be changed to your own image name
     volumes: 
       - /path/for/server-data:/vrising/.wine/drive_c/VRisingServer/server-data
     ports: 
