@@ -12,6 +12,7 @@ This is a private docker image.
 #### 3. Build image  
     docker build . -t v-rising-server-docker
 #### 4. Make directory and set permissions for your server-data  
+**Very Important ！！ If you do not set it ,the container will not setup save in volume!!**  
 ```
 mkdir /path/for/server-data && chmod -R 777 /path/for/server-data
 ```  
