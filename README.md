@@ -32,7 +32,7 @@ services:
       - "9877:9877/udp"
     restart: unless-stopped
 ```  
-*The image name should change to you own repository name and image name if you are using GitHub Action or other dockeregistry like DockerHub.(format: repository/imagename:latest or ghcr.io/repository/imagename:latest)*  
+*The image name should change to you own repository name and image name if you are using GitHub Action or other dockeregistry like DockerHub.(format: username/repository:latest or ghcr.io/username/repository:latest)*  
 * run docker-compose  
 ```
 docker-compose up -d
