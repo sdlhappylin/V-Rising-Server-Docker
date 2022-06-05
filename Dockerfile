@@ -3,24 +3,13 @@ FROM fragsoc/steamcmd-wine-xvfb
 USER root
 WORKDIR /
 RUN DEBIAN_FRONTEND=noninteractive apt-get update  && \
-    DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends --no-install-suggests winbind -y && \
+    DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends --no-install-suggests gosu winbind -y && \
     DEBIAN_FRONTEND=noninteractive apt-get clean autoclean -y && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
-
-ARG UID=1000
-ARG GID=1000
-
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 ENV HOME="/vrising"
-
-RUN mkdir -p /vrising/.wine/drive_c/VRisingServer/server-data && \
-    groupadd -g $GID vrising && \
-    useradd -m -s /bin/false -u $UID -g $GID vrising && \
-    chmod -R 777 /vrising/.wine/drive_c/VRisingServer && \
-    chown -R vrising:vrising /vrising
-
-USER vrising
-
+RUN mkdir -p /vrising/.wine/drive_c/VRisingServer/server-data
 # Install Server
 ARG APPID=1829350
 ARG STEAM_BETAS
@@ -35,5 +24,6 @@ RUN steamcmd \
 
 WORKDIR /vrising/.wine/drive_c/VRisingServer
 VOLUME /vrising/.wine/drive_c/VRisingServer/server-data
+ENTRYPOINT [/usr/local/bin/docker-entrypoint.sh]
 EXPOSE 9876/tcp 9876/udp 9877/tcp 9877/udp
-ENTRYPOINT ["tini", "--", "xvfb-run", "-a", "wine", "./VRisingServer.exe", "-persistentDataPath", "./server-data"]
+CMD ["tini", "--", "xvfb-run", "-a", "wine", "./VRisingServer.exe", "-persistentDataPath", "./server-data"]
