@@ -2,12 +2,15 @@ FROM fragsoc/steamcmd-wine-xvfb
 
 USER root
 WORKDIR /
+RUN wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64"&& \ 
+    chmod +x /usr/local/bin/gosu && \
+    gosu nobody true
 RUN DEBIAN_FRONTEND=noninteractive apt-get update  && \
     DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends --no-install-suggests winbind -y && \
     DEBIAN_FRONTEND=noninteractive apt-get clean autoclean -y && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
-
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 ARG UID=1000
 ARG GID=1000
 
@@ -19,7 +22,6 @@ RUN mkdir -p /vrising/.wine/drive_c/VRisingServer/server-data && \
     chmod -R 777 /vrising/.wine/drive_c/VRisingServer && \
     chown -R vrising:vrising /vrising
 
-USER vrising
 
 # Install Server
 ARG APPID=1829350
@@ -35,5 +37,6 @@ RUN steamcmd \
 
 WORKDIR /vrising/.wine/drive_c/VRisingServer
 VOLUME /vrising/.wine/drive_c/VRisingServer/server-data
+ENTRYPOINT [/usr/local/bin/docker-entrypoint.sh]
 EXPOSE 9876/tcp 9876/udp 9877/tcp 9877/udp
-ENTRYPOINT ["tini", "--", "xvfb-run", "-a", "wine", "./VRisingServer.exe", "-persistentDataPath", "./server-data"]
+CMD ["tini", "--", "xvfb-run", "-a", "wine", "./VRisingServer.exe", "-persistentDataPath", "./server-data"]
