@@ -24,6 +24,6 @@ RUN steamcmd \
 
 WORKDIR /vrising/.wine/drive_c/VRisingServer
 VOLUME /vrising/.wine/drive_c/VRisingServer/server-data
-ENTRYPOINT [/usr/local/bin/docker-entrypoint.sh]
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/docker-entrypoint.sh"]
 EXPOSE 9876/tcp 9876/udp 9877/tcp 9877/udp
 CMD ["tini", "--", "xvfb-run", "-a", "wine", "./VRisingServer.exe", "-persistentDataPath", "./server-data"]
