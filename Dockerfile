@@ -2,11 +2,8 @@ FROM fragsoc/steamcmd-wine-xvfb
 
 USER root
 WORKDIR /
-RUN wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64"&& \ 
-    chmod +x /usr/local/bin/gosu && \
-    gosu nobody true
 RUN DEBIAN_FRONTEND=noninteractive apt-get update  && \
-    DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends --no-install-suggests winbind -y && \
+    DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends --no-install-suggests gosu winbind -y && \
     DEBIAN_FRONTEND=noninteractive apt-get clean autoclean -y && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
