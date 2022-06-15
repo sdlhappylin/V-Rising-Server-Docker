@@ -30,4 +30,4 @@ WORKDIR /vrising/.wine/drive_c/VRisingServer
 VOLUME /vrising/.wine/drive_c/VRisingServer/server-data
 ENTRYPOINT ["/bin/bash", "/usr/local/bin/docker-entrypoint.sh"]
 EXPOSE 9876/tcp 9876/udp 9877/tcp 9877/udp 27015/tcp 27015/udp
-CMD ["tini", "--", "xvfb-run", "-a", "wine", "./VRisingServer.exe", "-persistentDataPath", "./server-data"]
+CMD ["tini", "--", "xvfb-run", "-a", "wine", "./VRisingServer.exe", "-persistentDataPath", "./server-data", "-logFile", "/vrising/.wine/drive_c/VRisingServer/server-data/VRisingServer.log"]
