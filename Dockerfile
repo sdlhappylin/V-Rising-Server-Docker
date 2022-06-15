@@ -12,8 +12,8 @@ ENV GID = 1000
 ENV UID = 1000
 ENV HOME="/vrising"
 RUN mkdir -p /vrising/.wine/drive_c/VRisingServer/server-data && \
-    groupadd -g ${GID} vrising && \
-    useradd -m -s /bin/false -u ${UID} -g ${GID} vrising && \
+    groupadd -g $GID vrising && \
+    useradd -m -s /bin/false -u $UID -g $GID vrising
 # Install Server
 ARG APPID=1829350
 ARG STEAM_BETAS
