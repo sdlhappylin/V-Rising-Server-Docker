@@ -29,10 +29,7 @@ RUN wget wget 'https://raw.githubusercontent.com/Winetricks/winetricks/master/sr
     && mkdir /tmp/wine-mono \
     && wget https://dl.winehq.org/wine/wine-mono/${WINE_MONO_VERSION}/wine-mono-${WINE_MONO_VERSION}.msi -O /tmp/wine-mono/wine-mono-${WINE_MONO_VERSION} 
     # Install .NET Framework 2.0 and 4.6.2
-RUN wine wineboot --init \
-    && waitforprocess.sh wineserver \
-    && x11-start.sh \
-    && winetricks --unattended --force vcrun2019 dotnet20 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier
+RUN  winetricks --unattended --force vcrun2019 dotnet20 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier
     
 FROM builder as runnner
 ARG APPID=1829350
