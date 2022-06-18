@@ -21,12 +21,12 @@ RUN apt update -yq && \
     apt install -y --no-install-recommends \
         winehq-stable
          
-RUN wget wget 'https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks' -O /usr/local/bin/winetricks \
+RUN wget 'https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks' -O /usr/local/bin/winetricks \
     && chmod +x /usr/local/bin/winetricks \
-    && chmod +x /usr/local/bin/*.sh 
+    && chmod +x /usr/local/bin/*.sh \
     # Mono For Wine
-    #&& mkdir /tmp/wine-mono \
-    #&& wget https://dl.winehq.org/wine/wine-mono/${WINE_MONO_VERSION}/wine-mono-${WINE_MONO_VERSION}.msi -O /tmp/wine-mono/wine-mono-${WINE_MONO_VERSION} 
+    && mkdir /tmp/wine-mono \
+    && wget https://dl.winehq.org/wine/wine-mono/${WINE_MONO_VERSION}/wine-mono-${WINE_MONO_VERSION}.msi -O /tmp/wine-mono/wine-mono-${WINE_MONO_VERSION} 
     # Install .NET Framework 2.0 and 4.6.2
 ENV  WINEPREFIX=$HOME/winedotnet
 RUN  winetricks --unattended --force vcrun2019 dotnet20 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier
