@@ -21,17 +21,19 @@ RUN apt-add-repository "deb http://dl.winehq.org/wine-builds/ubuntu/ $(lsb_relea
 RUN apt update -yq && \
     apt install -y --no-install-recommends \
         winehq-stable
-RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O /usr/local/bin/winetricks \
+         
+RUN wget wget 'https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks' -O /usr/local/bin/winetricks \
     && chmod +x /usr/local/bin/winetricks \
     && chmod +x /usr/local/bin/*.sh \
     # Mono For Wine
-    && mkdir /tmp/wine-mono \
-    && wget https://dl.winehq.org/wine/wine-mono/${WINE_MONO_VERSION}/wine-mono-${WINE_MONO_VERSION}.msi -O /tmp/wine-mono/wine-mono-${WINE_MONO_VERSION} \ 
+    && mkdir /tmp/wine-mono 
+RUN wget https://dl.winehq.org/wine/wine-mono/${WINE_MONO_VERSION}/wine-mono-${WINE_MONO_VERSION}.msi -O /tmp/wine-mono/wine-mono-${WINE_MONO_VERSION} \ 
     # Install .NET Framework 2.0 and 4.6.2
     && wine wineboot --init \
     && waitforprocess.sh wineserver \
     && x11-start.sh \
     && winetricks --unattended --force vcrun2019 dotnet20 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier
+    
 FROM builder as runnner
 ARG APPID=1829350
 ARG STEAM_BETAS
