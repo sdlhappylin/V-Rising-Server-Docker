@@ -22,8 +22,8 @@ RUN apt update -yq && \
         winehq-stable
          
 ADD https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks  /usr/local/bin/winetricks 
-RUN chmod +x /usr/local/bin/winetricks \
-    && chmod +x /usr/local/bin/*.sh 
+RUN chmod +x /usr/local/bin/winetricks 
+    #&& chmod +x /usr/local/bin/*.sh 
     # Mono For Wine
     #&& mkdir /tmp/wine-mono \
     #&& wget https://dl.winehq.org/wine/wine-mono/${WINE_MONO_VERSION}/wine-mono-${WINE_MONO_VERSION}.msi -O /tmp/wine-mono/wine-mono-${WINE_MONO_VERSION} 
