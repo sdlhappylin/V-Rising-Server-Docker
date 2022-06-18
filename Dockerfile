@@ -5,8 +5,8 @@ ARG WINEPREFIX=/root/.wine
 ARG WINEARCH=win64
 USER root
 ENV TINI_VERSION v0.19.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
-RUN chmod +x /tini
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
+RUN chmod +x /usr/bin/tini
 RUN apt update -yq && \
     apt install -y --no-install-recommends \
         wget \
@@ -47,5 +47,5 @@ RUN steamcmd \
 
 WORKDIR /root/.wine/drive_c/VRisingServer
 VOLUME /root/.wine/drive_c/VRisingServer/server-data
-ENTRYPOINT ["/tini", "--"]
+ENTRYPOINT ["tini", "--"]
 CMD ["xvfb-run", "-a", "wine", "./VRisingServer.exe", "-persistentDataPath", "./server-data", "-logFile", "/vrising/.wine/drive_c/VRisingServer/server-data/VRisingServer.log"]
