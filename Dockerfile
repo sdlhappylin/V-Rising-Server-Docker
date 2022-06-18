@@ -1,7 +1,6 @@
 FROM steamcmd/steamcmd:ubuntu-20 as builder
 ARG DEBIAN_FRONTEND=noninteractive
 ARG WINE_MONO_VERSION="4.7.3"
-ARG WINEPREFIX=/root/.wine
 ARG WINEARCH=win64
 USER root
 ENV TINI_VERSION v0.19.0
@@ -29,6 +28,7 @@ RUN wget wget 'https://raw.githubusercontent.com/Winetricks/winetricks/master/sr
     && mkdir /tmp/wine-mono \
     && wget https://dl.winehq.org/wine/wine-mono/${WINE_MONO_VERSION}/wine-mono-${WINE_MONO_VERSION}.msi -O /tmp/wine-mono/wine-mono-${WINE_MONO_VERSION} 
     # Install .NET Framework 2.0 and 4.6.2
+ENV  WINEPREFIX=$HOME/winedotnet
 RUN  winetricks --unattended --force vcrun2019 dotnet20 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier
     
 FROM builder as runnner
