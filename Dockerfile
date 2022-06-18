@@ -47,5 +47,5 @@ RUN steamcmd \
 
 WORKDIR /root/.wine/drive_c/VRisingServer
 VOLUME /root/.wine/drive_c/VRisingServer/server-data
-ENTRYPOINT["tini", "--"]
+ENTRYPOINT ["/tini", "--"]
 CMD ["xvfb-run", "-a", "wine", "./VRisingServer.exe", "-persistentDataPath", "./server-data", "-logFile", "/vrising/.wine/drive_c/VRisingServer/server-data/VRisingServer.log"]
