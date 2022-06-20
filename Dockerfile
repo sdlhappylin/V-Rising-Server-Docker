@@ -28,7 +28,10 @@ RUN chmod +x /usr/local/bin/winetricks
     #&& mkdir /tmp/wine-mono \
     #&& wget https://dl.winehq.org/wine/wine-mono/${WINE_MONO_VERSION}/wine-mono-${WINE_MONO_VERSION}.msi -O /tmp/wine-mono/wine-mono-${WINE_MONO_VERSION} 
     # Install .NET Framework 2.0 and 4.6.2
-RUN env WINEPREFIX=$HOME/winedotnet wineboot --init
+RUN wineboot --init \
+    && winetricks --unattended --force vcrun2019 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier \
+    && wineboot --update
+#RUN env WINEPREFIX=$HOME/winedotnet wineboot --init --unattended --force vcrun2019 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier
 #RUN  env WINEPREFIX=$HOME/winedotnet winetricks --unattended --force vcrun2019 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier
     
 FROM builder as runnner
