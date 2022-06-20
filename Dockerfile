@@ -8,12 +8,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update  && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-ENV GID=1000
-ENV UID=1000
+
 ENV HOME="/vrising"
 RUN mkdir -p /vrising/.wine/drive_c/VRisingServer/server-data
-RUN groupadd -g $GID vrising && \
-    useradd -M -s /bin/false -u ${UID} -g $GID vrising
 # Install Server
 ARG APPID=1829350
 ARG STEAM_BETAS
@@ -25,7 +22,6 @@ RUN steamcmd \
         +app_update $APPID $STEAM_BETAS validate \
         +app_update 1007 validate \
         +quit
-
 WORKDIR /vrising/.wine/drive_c/VRisingServer
 VOLUME /vrising/.wine/drive_c/VRisingServer/server-data
 ENTRYPOINT ["/bin/bash", "/usr/local/bin/docker-entrypoint.sh"]
