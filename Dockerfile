@@ -14,7 +14,8 @@ RUN apt update -yq && \
         lsb-release \
         gnupg \
         curl \
-        xvfb 
+        xvfb \
+        cabextract
 RUN wget -O- https://dl.winehq.org/wine-builds/winehq.key | apt-key add -
 RUN apt-add-repository "deb http://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -cs) main"
 RUN dpkg --add-architecture i386 && \
