@@ -17,10 +17,9 @@ RUN apt update -yq && \
         xvfb 
 RUN wget -O- https://dl.winehq.org/wine-builds/winehq.key | apt-key add -
 RUN apt-add-repository "deb http://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -cs) main"
-RUN apt update -yq && \
-    apt install -y --no-install-recommends \
-        winehq-stable
-         
+RUN dpkg --add-architecture i386 && \
+    apt update -yq && \
+    apt install -y --no-install-recommends winehq-stable
 ADD https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks  /usr/local/bin/winetricks 
 RUN chmod +x /usr/local/bin/winetricks 
     #&& chmod +x /usr/local/bin/*.sh 
