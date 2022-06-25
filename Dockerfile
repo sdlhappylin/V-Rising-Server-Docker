@@ -1,6 +1,5 @@
 FROM steamcmd/steamcmd:ubuntu-20 as builder
 ARG DEBIAN_FRONTEND=noninteractive
-ARG WINE_MONO_VERSION="4.7.3"
 ARG WINEARCH=win64
 USER root
 ENV TINI_VERSION v0.19.0
@@ -14,8 +13,7 @@ RUN apt update -yq && \
         lsb-release \
         gnupg \
         curl \
-        xvfb \
-        cabextract
+        xvfb 
 RUN wget -O- https://dl.winehq.org/wine-builds/winehq.key | apt-key add -
 RUN apt-add-repository "deb http://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -cs) main"
 RUN dpkg --add-architecture i386 && \
@@ -23,17 +21,7 @@ RUN dpkg --add-architecture i386 && \
     apt install -y --no-install-recommends winehq-stable
 ADD https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks  /usr/local/bin/winetricks 
 RUN chmod +x /usr/local/bin/winetricks 
-    #&& chmod +x /usr/local/bin/*.sh 
-    # Mono For Wine
-    #&& mkdir /tmp/wine-mono \
-    #&& wget https://dl.winehq.org/wine/wine-mono/${WINE_MONO_VERSION}/wine-mono-${WINE_MONO_VERSION}.msi -O /tmp/wine-mono/wine-mono-${WINE_MONO_VERSION} 
-    # Install .NET Framework 2.0 and 4.6.2
-RUN wineboot --init \
-    && xvfb-run -a winetricks --unattended --force vcrun2019 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier \
-    && wineboot --update
-#RUN env WINEPREFIX=$HOME/winedotnet wineboot --init --unattended --force vcrun2019 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier
-#RUN  env WINEPREFIX=$HOME/winedotnet winetricks --unattended --force vcrun2019 dotnet35 dotnet40 dotnet45 msxml6 dotnet_verifier
-    
+   
 FROM builder as runnner
 ARG APPID=1829350
 ARG STEAM_BETAS
